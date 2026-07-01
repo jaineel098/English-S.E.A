@@ -69,3 +69,51 @@ toggle.onclick = ()=>{
         : "🌙";
 
 };
+
+/* ===========================
+Volunteer Form
+=========================== */
+
+const form = document.getElementById("volunteerForm");
+
+if(form){
+
+const popup = document.getElementById("popup");
+
+const closePopup = document.getElementById("closePopup");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const submitBtn = form.querySelector("button");
+
+submitBtn.innerHTML="Submitting...";
+
+submitBtn.disabled=true;
+
+setTimeout(()=>{
+
+submitBtn.innerHTML="Submitted ✓";
+
+popup.style.display="flex";
+
+},1000);
+
+});
+
+closePopup.onclick=function(){
+
+popup.style.display="none";
+
+form.reset();
+
+const submitBtn=form.querySelector("button");
+
+submitBtn.innerHTML="Submit";
+
+submitBtn.disabled=false;
+
+};
+
+}
